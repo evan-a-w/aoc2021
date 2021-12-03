@@ -7,11 +7,12 @@ import P3
 doProb :: Int -> IO ()
 doProb a = do
   putStrLn $ "Problem " ++ show a ++ ": "
-  let sol = case a of
-        1 -> sol1
-        2 -> sol2
-        3 -> sol3
-        otherwise -> replicate 2 (putStrLn "Not implemented")
+  let sol =
+        case a of
+          1 -> sol1
+          2 -> sol2
+          3 -> sol3
+          otherwise -> replicate 2 (putStrLn "Not implemented")
   putStrLn "Part 1:"
   sol !! 0
   putStrLn "Part 2:"
