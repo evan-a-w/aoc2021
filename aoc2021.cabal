@@ -28,6 +28,7 @@ library
       Lib
       P1
       P2
+      P3
   other-modules:
       Paths_aoc2021
   hs-source-dirs:

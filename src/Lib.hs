@@ -2,6 +2,7 @@ module Lib where
 
 import P1
 import P2
+import P3
 
 doProb :: Int -> IO ()
 doProb a = do
@@ -9,6 +10,7 @@ doProb a = do
   let sol = case a of
         1 -> sol1
         2 -> sol2
+        3 -> sol3
         otherwise -> replicate 2 (putStrLn "Not implemented")
   putStrLn "Part 1:"
   sol !! 0
