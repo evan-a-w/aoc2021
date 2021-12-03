@@ -29,9 +29,9 @@ p3p2 = do
       sortByLen = sortBy (compare `on` (\x -> -(length x)))
       ms :: Int -> ([String] -> Char)
       ms i = (\x -> let lx = (length . head) x
-                      in
-                      head . maximum . takeWhile (\y -> lx == length y) $ x) .
-           (sortByLen . group . sort . (!! i) . transpose)
+                    in
+                    head . maximum . takeWhile (\y -> lx == length y) $ x) .
+             (sortByLen . group . sort . (!! i) . transpose)
       opp x
         | x == '0'  = '1'
         | otherwise = '0'
@@ -44,7 +44,7 @@ p3p2 = do
                       filt most nlin (n+1)
       ox = filt True lins 0
       c02 = filt False lins 0
-  putStrLn $ show $ (bin2dec ox) * (bin2dec c02)
+  putStrLn . show $ (bin2dec ox) * (bin2dec c02)
 
 
 sol3 :: [IO ()]
