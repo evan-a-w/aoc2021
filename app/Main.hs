@@ -3,4 +3,4 @@ module Main where
 import Lib
 
 main :: IO ()
-main = doProb 4
+main = sequence_ (doProb <$> [1 .. 4])
