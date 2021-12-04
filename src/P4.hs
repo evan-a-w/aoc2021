@@ -8,7 +8,7 @@ split :: Eq a => a -> [a] -> [[a]]
 split = go []
   where
     go acc _ []
-      | acc == [] = []
+      | null acc = []
       | otherwise = [reverse acc]
     go acc s (x:xs)
       | x == s =
