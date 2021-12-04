@@ -23,8 +23,7 @@ p4p1 = do
   let ls = lines inp
       calls = map read . split ',' . head $ ls :: [Int]
       -- tables is list of 2d lists representing the numbers
-      tables =
-        map (map (map read . split ' ')) . split "" . tail $ ls :: [[[Int]]]
+      tables = map (map (map read . words)) . split "" . tail $ ls :: [[[Int]]]
       c l b = any (all (`elem` l)) $ b ++ transpose b
       final =
         fmap head . (\x -> (x, filter (c (take x calls)) tables)) $
@@ -32,9 +31,9 @@ p4p1 = do
       score =
         (*)
           (sum .
-           filter (not . flip elem (take (fst final) calls)) . foldr (++) [] $
-           snd final)
-          (head . reverse . take (fst final) $ calls)
+           filter (not . flip elem (take (fst final) calls)) . concat . snd $
+           final)
+          (last . take (fst final) $ calls)
   putStrLn $ show score
 
 p4p2 :: IO ()
@@ -43,8 +42,7 @@ p4p2 = do
   let ls = lines inp
       calls = map read . split ',' . head $ ls :: [Int]
       -- tables is list of 2d lists representing the numbers
-      tables =
-        map (map (map read . split ' ')) . split "" . tail $ ls :: [[[Int]]]
+      tables = map (map (map read . words)) . split "" . tail $ ls :: [[[Int]]]
       c l b = any (all (`elem` l)) $ b ++ transpose b
       final =
         fmap head . (\x -> (x, filter (not . c (take (x - 1) calls)) tables)) $
@@ -52,8 +50,8 @@ p4p2 = do
       score =
         let fcalls = take (fst final) calls
          in (*)
-              (sum . filter (not . flip elem fcalls) . foldr (++) [] $ snd final)
-              (head . reverse $ fcalls)
+              (sum . filter (not . flip elem fcalls) . concat . snd $ final)
+              (last fcalls)
   putStrLn $ show score
 
 sol4 = [p4p1, p4p2]
