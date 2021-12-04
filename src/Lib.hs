@@ -3,6 +3,7 @@ module Lib where
 import P1
 import P2
 import P3
+import P4
 
 doProb :: Int -> IO ()
 doProb a = do
@@ -12,6 +13,7 @@ doProb a = do
           1 -> sol1
           2 -> sol2
           3 -> sol3
+          4 -> sol4
           otherwise -> replicate 2 (putStrLn "Not implemented")
   putStrLn "Part 1:"
   sol !! 0
