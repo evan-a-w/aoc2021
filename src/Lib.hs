@@ -6,6 +6,7 @@ import P3
 import P4
 import P5
 import P6
+import P7
 
 doProb :: Int -> IO ()
 doProb a = do
@@ -18,6 +19,7 @@ doProb a = do
           4 -> sol4
           5 -> sol5
           6 -> sol6
+          7 -> sol7
           otherwise -> replicate 2 (putStrLn "Not implemented")
   putStrLn "Part 1:"
   sol !! 0
