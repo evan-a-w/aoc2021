@@ -3,4 +3,4 @@ module Main where
 import Lib
 
 main :: IO ()
-main = doProb 8
+main = doProb 14

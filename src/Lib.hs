@@ -1,6 +1,7 @@
 module Lib where
 
 import P1
+import P14
 import P2
 import P3
 import P4
@@ -22,6 +23,7 @@ doProb a = do
           6 -> sol6
           7 -> sol7
           8 -> sol8
+          14 -> sol14
           otherwise -> replicate 2 (putStrLn "Not implemented")
   putStrLn "Part 1:"
   sol !! 0
